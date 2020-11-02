@@ -3,6 +3,9 @@
     "version": "0.0.1",
     "description": "Stock Chat Application",
     "main": "index.js",
+    "scripts": {
+        "test": "mocha -r ts-node/register ./**/**/*.test.ts"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/juancancela/stock.git"
@@ -10,6 +13,16 @@
     "author": "Juan Carlos Cancela <cancela.juancarlos@gmail.com>",
     "license": "MIT",
     "dependencies": {
-        "express": "4.17.1"
+        "@types/axios": "^0.14.0",
+        "@types/chai": "^4.2.14",
+        "@types/mocha": "^8.0.3",
+        "@types/node": "^14.14.6",
+        "axios": "^0.21.0",
+        "axios-mock-adapter": "^1.19.0",
+        "chai": "^4.2.0",
+        "express": "4.17.1",
+        "mocha": "^8.0.3",
+        "ts-node": "^8.4.1",
+        "typescript": "^3.6.3"
     }
-  }  
+}
