@@ -46,14 +46,17 @@ export class SocketChat {
         this.socketIO.emit(ApplicationEvents.MESSAGE, msg);
 
         try {
-          const parsedMessage = await this.bot.run(msg);
-          if (parsedMessage) {
-            const response = await this.bot.getData(parsedMessage);
-            const message = this.bot.getMessage(response.data);
-            this.socketIO.emit(ApplicationEvents.MESSAGE, message);
+          const stockCode = this.bot.getStockCodeFromMessage(msg);
+          if (stockCode) {
+            const response = await this.bot.getData(stockCode);
+            const stockQuoteMessage = this.bot.getMessage(response.data);
+            this.socketIO.emit(ApplicationEvents.MESSAGE, stockQuoteMessage);
           }
         } catch (error) {
-          this.socketIO.emit(MESSAGE, error);
+          this.socketIO.emit(MESSAGE, {
+              author: 'stock-app',
+              message: error.message
+          });
         }
       });
 
