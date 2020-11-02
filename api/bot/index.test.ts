@@ -11,7 +11,7 @@ describe("Tests for Stock Bot", () => {
 
     const message: Message = {
       author: "stock-bot",
-      message: "AAPL.US symbol value is $99.43 close x share",
+      message: "AAPL.US quote is $99.43 per share",
       timestamp: new Date()
     };
 

@@ -1,14 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { SocketApplication } from "./socket";
+import { Context } from "./socket/context";
+import reportWebVitals from "./reportWebVitals";
+const chat = new SocketApplication();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Context.Provider value={chat}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Context.Provider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

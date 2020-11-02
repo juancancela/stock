@@ -35,24 +35,23 @@ class Bot {
     const { Symbol, Close } = this.getStockFromData(csv);
     return {
       author,
-      message: `${Symbol} symbol value is $${Close} close x share`,
+      message: `${Symbol} quote is $${Close} per share`,
       timestamp: new Date(),
     };
   }
 
-  async run(command: Message) {
-    const { message } = command;
+  getStockCodeFromMessage(msg: Message) {
+    const { message } = msg;
     let code;
-
     if (message.startsWith("/stock_code=")) {
       code = message.split("=")[1];
-      if (code && code !== "") return Promise.resolve(code);
-      return Promise.reject(REQUEST_EXECUTION_FAILED);
+      if (code && code !== "") return code;
+      throw new Error(REQUEST_EXECUTION_FAILED.message);
     }
 
-    if (message.startsWith("/")) return Promise.reject(COMMAND_IS_NOT_VALID);
+    if (message.startsWith("/")) throw new Error(COMMAND_IS_NOT_VALID.message);
 
-    return Promise.resolve(null);
+    return null;
   }
 
   async getData(command: string) {
