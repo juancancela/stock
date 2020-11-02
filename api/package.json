@@ -1,0 +1,15 @@
+{
+    "name": "stock-api",
+    "version": "0.0.1",
+    "description": "Stock Chat Application",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/juancancela/stock.git"
+    },
+    "author": "Juan Carlos Cancela <cancela.juancarlos@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "express": "4.17.1"
+    }
+  }  
